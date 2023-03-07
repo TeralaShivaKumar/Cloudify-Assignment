@@ -13,6 +13,8 @@ app.use(express.static('./'));
 app.use(bodyparser.urlencoded({extended: true}));
 
 
+
+
 /**Landing Page's Route */
 app.get("/",(request,response)=>{
     response.sendFile('./index.html',{root:__dirname});
@@ -20,7 +22,8 @@ app.get("/",(request,response)=>{
 
 
 /** Business Logic and Network Calls */
-app.post("/details",(request,response)=>{
+
+let details=app.post("/details",(request,response)=>{
     const trelloCardName=request.body.name;
     const trelloCardDescription=request.body.description;
     const trelloCardDueDate=request.body.dueDate;
@@ -39,9 +42,15 @@ app.post("/details",(request,response)=>{
     .catch(err => console.error(err));
 })
 
-app.get("/added",(request,response)=>{
+let added=app.get("/added",(request,response)=>{
     response.sendFile("./thankyou.html",{root:__dirname});
 })
+
+
+
+
+
+
 
 
 /**Starting the server at port 3000 */
