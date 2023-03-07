@@ -9,7 +9,7 @@ const fetch = require('node-fetch');
 /**Initializing the Server */
 const app=express();
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('./'));
 app.use(bodyparser.urlencoded({extended: true}));
 
 
@@ -40,7 +40,7 @@ app.post("/details",(request,response)=>{
 })
 
 app.get("/added",(request,response)=>{
-    response.sendFile("./public/thankyou.html",{root:__dirname});
+    response.sendFile("./thankyou.html",{root:__dirname});
 })
 
 
