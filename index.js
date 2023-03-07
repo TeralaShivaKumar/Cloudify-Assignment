@@ -15,7 +15,7 @@ app.use(bodyparser.urlencoded({extended: true}));
 
 /**Landing Page's Route */
 app.get("/",(request,response)=>{
-    response.sendFile('./public/page.html',{root:__dirname});
+    response.sendFile('./index.html',{root:__dirname});
 })
 
 
